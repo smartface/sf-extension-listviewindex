@@ -8,6 +8,7 @@ This view component provides alphabetical scrollbar.
 **Since**: 1.0  
 
 * [ListviewIndex](#ListviewIndex)
+    * [new ListviewIndex(params)](#new_ListviewIndex_new)
     * [.backgroundView](#ListviewIndex+backgroundView) ⇒ <code>UI.View</code>
     * [.tintColor](#ListviewIndex+tintColor) ⇒ <code>UI.Color</code>
     * [.itemSpacing](#ListviewIndex+itemSpacing) ⇒ <code>number</code>
@@ -24,6 +25,28 @@ This view component provides alphabetical scrollbar.
     * ["indexItems"](#ListviewIndex+event_indexItems) ⇒
     * ["indexDidSelect"](#ListviewIndex+event_indexDidSelect) ⇒
 
+<a name="new_ListviewIndex_new"></a>
+
+### new ListviewIndex(params)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| params | <code>object</code> | init object |
+
+**Example**  
+```js
+var listviewindex = new ListviewIndex();
+listviewindex.width = 20;
+listviewindex.indexItems = function() {
+    return _headerData;
+}
+listviewindex.indexDidSelect = function(index) {
+    myListView.scrollTo(headerIndex[index], false);
+    return true; //haptic
+}
+listviewindex.reloadData();
+page.layout.addChild(listviewindex);
+```
 <a name="ListviewIndex+backgroundView"></a>
 
 ### listviewIndex.backgroundView ⇒ <code>UI.View</code>

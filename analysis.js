@@ -1,5 +1,6 @@
 /**
  * @class ListviewIndex
+ * @param {object} params - init object
  * @since 1.0
  * @see http://ref.smartface.io/#!/api/UI.View
  * 
@@ -17,8 +18,7 @@
  * }
  * listviewindex.reloadData();
  * page.layout.addChild(listviewindex);
- * 
- **/
+ */
  const ListviewIndex = function() {};
  
 /**
