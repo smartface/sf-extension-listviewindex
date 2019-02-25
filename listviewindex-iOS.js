@@ -11,7 +11,16 @@ const ListviewIndex = extend(View)(
         _super(this);
 
         self.nativeObject.indexItemsForTableViewIndex = function() {
-            return self.indexItems ? self.indexItems() : [];
+            var returnValue = [];
+            if (self.indexItems) {
+                returnValue = self.indexItems().map((value, index, array) => {
+                    if (typeof value !== "string") {
+                        return value.nativeObject;
+                    }
+                    return value;
+                });
+            }
+            return returnValue;
         };
 
         self.nativeObject.tableViewIndexDidSelect = function(e) {
