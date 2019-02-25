@@ -1,0 +1,26 @@
+{
+  "name": "sf-extension-listviewindex",
+  "version": "1.0.0",
+  "description": "ListviewIndex component for Smartface Native Framework",
+  "main": "index.js",
+  "keywords": [
+    "smartface",
+    "plugins",
+    "fabric",
+    "crashlytics",
+    "javascript"
+  ],
+  "author": {
+    "name": "Smartface",
+    "email": "info@smartface.io",
+    "url": "http://smartface.io"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^4.0.1"
+  },
+  "scripts": {
+    "docs": "bash ./createdoc.sh"
+  },
+  "license": "ISC",
+  "homepage": "http://bitbucket.org/smartface-team/sf-plugins#readme"
+}
