@@ -4,7 +4,7 @@
 
 An extension to ListviewIndex component with Smartface Native Framework.
 
-![sample-video](https://github.com/smartface/sf-extension-listviewindex/tree/master/assets/listviewindexsample.gif)
+![sample-video](https://github.com/smartface/sf-extension-listviewindex/tree/master/assets/samplelistview.gif)
 
 ## Installation
 ListviewIndex Extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
