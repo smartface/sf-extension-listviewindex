@@ -22,5 +22,8 @@
     "docs": "bash ./createdoc.sh"
   },
   "license": "ISC",
-  "homepage": "http://bitbucket.org/smartface-team/sf-plugins#readme"
+  "homepage": "http://bitbucket.org/smartface-team/sf-plugins#readme",
+  "peerDependencies": {
+    "sf-core": "^4.0.0"
+  }
 }
