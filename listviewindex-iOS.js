@@ -2,15 +2,16 @@ const Color = require("sf-core/ui/color");
 const View = require("sf-core/ui/view");
 
 let _backgroundView = undefined;
-function ListviewIndex() {
+function ListViewIndex() {
   View.apply(this, arguments);
   this.nativeObject = new __SF_SMFTableViewIndex();
 }
 
-ListviewIndex.prototype = Object.create(View.prototype);
-ListviewIndex.prototype.constructor = ListviewIndex;
+ListViewIndex.prototype = Object.create(View.prototype);
+ListViewIndex.prototype.constructor = ListViewIndex;
+ListViewIndex.prototype.nativeObject = new __SF_SMFTableViewIndex();
 
-ListviewIndex.prototype.nativeObject.indexItemsForTableViewIndex = function() {
+ListViewIndex.prototype.nativeObject.indexItemsForTableViewIndex = function () {
   const returnValue = [];
   if (this.indexItems) {
     returnValue = this.indexItems().map((value, index, array) => {
@@ -23,14 +24,14 @@ ListviewIndex.prototype.nativeObject.indexItemsForTableViewIndex = function() {
   return returnValue;
 }
 
-ListviewIndex.prototype.nativeObject.tableViewIndexDidSelect = function (e) {
+ListViewIndex.prototype.nativeObject.tableViewIndexDidSelect = function (e) {
   return this.indexDidSelect ? this.indexDidSelect(e.index) : false; //haptic
 };
-ListviewIndex.prototype.reloadData = function() {
+ListViewIndex.prototype.reloadData = function () {
   this.nativeObject.reloadData();
 }
 
-Object.defineProperty(ListviewIndex.prototype, "backgroundView", {
+Object.defineProperty(ListViewIndex.prototype, "backgroundView", {
   get: function () {
     if (_backgroundView === undefined) {
       _backgroundView = new View();
@@ -41,7 +42,7 @@ Object.defineProperty(ListviewIndex.prototype, "backgroundView", {
   enumerable: true,
 });
 
-Object.defineProperty(ListviewIndex.prototype, "tintColor", {
+Object.defineProperty(ListViewIndex.prototype, "tintColor", {
   get: function () {
     return new Color({ color: this.nativeObject.tintColor });
   },
@@ -52,7 +53,7 @@ Object.defineProperty(ListviewIndex.prototype, "tintColor", {
   configurable: true,
 });
 
-Object.defineProperty(ListviewIndex.prototype, "itemSpacing", {
+Object.defineProperty(ListViewIndex.prototype, "itemSpacing", {
   get: function () {
     return this.nativeObject.itemSpacing;
   },
@@ -63,7 +64,7 @@ Object.defineProperty(ListviewIndex.prototype, "itemSpacing", {
   configurable: true,
 });
 
-Object.defineProperty(ListviewIndex.prototype, "font", {
+Object.defineProperty(ListViewIndex.prototype, "font", {
   get: function () {
     return this.nativeObject.font;
   },
@@ -96,7 +97,7 @@ Object.defineProperty(ListViewIndex.prototype, "indexOffset", {
   configurable: true,
 });
 
-Object.defineProperty(ListViewIndex.prototype, "listviewIndexMinimumWidth", {
+Object.defineProperty(ListViewIndex.prototype, "ListViewIndexMinimumWidth", {
   get: function () {
     return this.nativeObject.minWidth;
   },
@@ -127,4 +128,4 @@ ListViewIndex.prototype.resetAppearance = function () {
   this.nativeObject.resetAppearance();
 };
 
-module.exports = ListviewIndex;
+module.exports = ListViewIndex;
