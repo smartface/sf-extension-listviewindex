@@ -1,43 +1,51 @@
 const Color = require("sf-core/ui/color");
 const View = require("sf-core/ui/view");
 
-let _backgroundView = undefined;
 function ListViewIndex() {
-  View.apply(this, arguments);
   this.nativeObject = new __SF_SMFTableViewIndex();
-}
-
-ListViewIndex.prototype = Object.create(View.prototype);
-ListViewIndex.prototype.constructor = ListViewIndex;
-ListViewIndex.prototype.nativeObject = new __SF_SMFTableViewIndex();
-
-ListViewIndex.prototype.nativeObject.indexItemsForTableViewIndex = function () {
-  const returnValue = [];
-  if (this.indexItems) {
-    returnValue = this.indexItems().map((value, index, array) => {
+  View.apply(this, arguments);
+  this.nativeObject.indexItemsForTableViewIndex = () => {
+    let returnValue = [];
+    returnValue = this.items.map((value, index, array) => {
       if (typeof value !== "string") {
         return value.nativeObject;
       }
       return value;
     });
+    return returnValue;
   }
-  return returnValue;
+  this.nativeObject.tableViewIndexDidSelect = (e) => {
+    return this.indexDidSelect ? this.indexDidSelect(e.index) : false; //haptic
+  };
 }
 
-ListViewIndex.prototype.nativeObject.tableViewIndexDidSelect = function (e) {
-  return this.indexDidSelect ? this.indexDidSelect(e.index) : false; //haptic
-};
+ListViewIndex.prototype._backgroundView = undefined;
+ListViewIndex.prototype._items = [];
+ListViewIndex.prototype = Object.create(View.prototype);
+ListViewIndex.prototype.constructor = ListViewIndex;
+
 ListViewIndex.prototype.reloadData = function () {
   this.nativeObject.reloadData();
 }
 
+Object.defineProperty(ListViewIndex.prototype, "items", {
+  get: function () {
+    return this._items;
+  },
+  set: function (value) {
+    this._items = value.slice();
+  },
+  enumerable: true,
+  configurable: true
+});
+
 Object.defineProperty(ListViewIndex.prototype, "backgroundView", {
   get: function () {
-    if (_backgroundView === undefined) {
-      _backgroundView = new View();
-      _backgroundView.nativeObject = this.nativeObject.backgroundView;
+    if (this._backgroundView === undefined) {
+      this._backgroundView = new View();
+      this._backgroundView.nativeObject = this.nativeObject.backgroundView;
     }
-    return _backgroundView;
+    return this._backgroundView;
   },
   enumerable: true,
 });
