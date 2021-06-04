@@ -2,6 +2,7 @@
  * ListViewIndex utility
  * @type {object}
  * @author Berk Baski <berk.baski@smartface.io>
+ * @author Furkan Arabacı <furkan.arabaci@smartface.io>
  * @copyright Smartface 2021
  */
 
@@ -41,7 +42,7 @@ export type IndexOffsetType = {
  * listviewindex.reloadData();
  * page.layout.addChild(listviewindex);
  */
-class ListViewIndex extends View {
+export default class ListViewIndex extends View {
 
     /**
      * Background view is displayed below the index items.
@@ -123,7 +124,7 @@ class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    indexDidSelect(): void;
+    indexDidSelect({ index: number }): void;
 
     /**
      * Forces list index to reload its items. This causes list index to discard its current items and refill itself.

@@ -1,18 +1,10 @@
 const View = require("sf-core/ui/view");
-const extend = require("js-base/core/extend");
 
-const ListviewIndex = extend(View)(
-    function(_super, params) {
+function ListviewIndex() {
+    View.apply(this, arguments);
+  }
 
-        _super(this);
+ListviewIndex.prototype = Object.create(View.prototype);
+ListviewIndex.prototype.constructor = ListviewIndex;
 
-        
-        // Assign parameters given in constructor
-        if (params) {
-            for (var param in params) {
-                this[param] = params[param];
-            }
-        }
-    }
-);
 module.exports = ListviewIndex;
