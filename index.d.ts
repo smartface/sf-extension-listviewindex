@@ -124,7 +124,7 @@ export default class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    indexDidSelect({ index: number }): void;
+    indexDidSelect(index: number): void;
 
     /**
      * Forces list index to reload its items. This causes list index to discard its current items and refill itself.
