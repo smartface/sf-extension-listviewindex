@@ -1,7 +1,8 @@
 {
-  "name": "sf-extension-listviewindex",
+  "name": "@smartface/extension-listviewindex",
   "version": "1.0.0",
   "description": "ListviewIndex component for Smartface Native Framework",
+  "repository": "https://github.com/smartface/sf-extension-listviewindex",
   "main": "index.js",
   "keywords": [
     "smartface",
@@ -15,15 +16,8 @@
     "email": "info@smartface.io",
     "url": "http://smartface.io"
   },
-  "devDependencies": {
-    "jsdoc-to-markdown": "^4.0.1"
-  },
-  "scripts": {
-    "docs": "bash ./createdoc.sh"
-  },
-  "license": "ISC",
-  "homepage": "http://bitbucket.org/smartface-team/sf-plugins#readme",
+  "license": "MIT",
   "peerDependencies": {
-    "sf-core": "^4.0.0"
+    "@smartface/native": "^4.0.0"
   }
 }

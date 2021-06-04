@@ -1,5 +1,2 @@
-if (Device.deviceOS === "iOS") {
-  module.exports = require('./listviewindex-iOS');
-} else if (Device.deviceOS === "Android") {
-  module.exports = require('./listviewindex-Android');
-}
+const System = require("sf-core/device/system");
+module.exports = require(`./listviewindex-${System.OS}`);

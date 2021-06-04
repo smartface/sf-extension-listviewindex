@@ -7,11 +7,11 @@ An extension to ListviewIndex component with Smartface Native Framework.
 <img src="/src/samplelistview.gif" width="320" height="568">
 
 ## Installation
-ListviewIndex Extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
+ListviewIndex Extension can be installed via npm easily from our public npm repository. Execute the command on your scripts directory:
 
-- Open terminals
-- `(cd ~/workspace/scripts && npm i -S sf-extension-listviewindex)`
-- Finally require the extension as: `require("sf-extension-listviewindex")`
+```
+npm i @smartface/extension-listviewindex
+```
 
 ## How to use
 1) Create ListviewIndex object and add to your page layout as child view.
