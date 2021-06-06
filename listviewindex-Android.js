@@ -1,4 +1,4 @@
-const View = require("sf-core/ui/view");
+const View = require("@smartface/native/ui/view");
 
 function ListviewIndex() {
     View.apply(this, arguments);

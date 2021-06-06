@@ -17,15 +17,15 @@ npm i @smartface/extension-listviewindex
 1) Create ListviewIndex object and add to your page layout as child view.
 ```typescript
 import Page1Design from 'generated/pages/page1';
-import Image from "sf-core/ui/image";
+import Image from "@smartface/native/ui/image";
 import extend from "js-base/core/extend";
-import Color from 'sf-core/ui/color';
-import Label from 'sf-core/ui/label';
-import FlexLayout from 'sf-core/ui/flexlayout';
-import ListView from 'sf-core/ui/listview';
-import ListViewItem from 'sf-core/ui/listviewitem';
-import Font from 'sf-core/ui/font';
-import TextAlignment from 'sf-core/ui/textalignment';
+import Color from '@smartface/native/ui/color';
+import Label from '@smartface/native/ui/label';
+import FlexLayout from '@smartface/native/ui/flexlayout';
+import ListView from '@smartface/native/ui/listview';
+import ListViewItem from '@smartface/native/ui/listviewitem';
+import Font from '@smartface/native/ui/font';
+import TextAlignment from '@smartface/native/ui/textalignment';
 import ListviewIndex from 'sf-extension-listviewindex';
 
 export default class Page1 extends Page1Design {

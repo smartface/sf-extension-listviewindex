@@ -1,13 +1,13 @@
-const Image = require("sf-core/ui/image");
-const Page = require("sf-core/ui/page");
+const Image = require("@smartface/native/ui/image");
+const Page = require("@smartface/native/ui/page");
 const extend = require("js-base/core/extend");
-const Color = require("sf-core/ui/color");
-const Label = require("sf-core/ui/label");
-const FlexLayout = require("sf-core/ui/flexlayout");
-const ListView = require("sf-core/ui/listview");
-const ListViewItem = require("sf-core/ui/listviewitem");
-const Font = require("sf-core/ui/font");
-const TextAlignment = require("sf-core/ui/textalignment");
+const Color = require("@smartface/native/ui/color");
+const Label = require("@smartface/native/ui/label");
+const FlexLayout = require("@smartface/native/ui/flexlayout");
+const ListView = require("@smartface/native/ui/listview");
+const ListViewItem = require("@smartface/native/ui/listviewitem");
+const Font = require("@smartface/native/ui/font");
+const TextAlignment = require("@smartface/native/ui/textalignment");
 const ListviewIndex = require("sf-extension-listviewindex");
 
 var Page1 = extend(Page)(function (_super) {

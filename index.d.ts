@@ -6,10 +6,10 @@
  * @copyright Smartface 2021
  */
 
-import View from "sf-core/ui/view";
-import Color from "sf-core/ui/color";
-import Font from "sf-core/ui/font";
-import Image from "sf-core/ui/image";
+import View from "@smartface/native/ui/view";
+import Color from "@smartface/native/ui/color";
+import Font from "@smartface/native/ui/font";
+import Image from "@smartface/native/ui/image";
 
 export type IndexInsetType = {
   top: number;

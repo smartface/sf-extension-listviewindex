@@ -1,5 +1,5 @@
-const Color = require("sf-core/ui/color");
-const View = require("sf-core/ui/view");
+const Color = require("@smartface/native/ui/color");
+const View = require("@smartface/native/ui/view");
 
 function ListViewIndex() {
   this.nativeObject = new __SF_SMFTableViewIndex();
