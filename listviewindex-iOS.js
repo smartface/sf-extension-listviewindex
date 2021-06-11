@@ -1,140 +1,139 @@
-const Color = require("sf-core/ui/color");
-const View = require("sf-core/ui/view");
-const extend = require("js-base/core/extend");
+const Color = require("@smartface/native/ui/color");
+const View = require("@smartface/native/ui/view");
 
-const ListviewIndex = extend(View)(
-    function(_super, params) {
-        var self = this;
+function ListViewIndex() {
+  this.nativeObject = new __SF_SMFTableViewIndex();
+  View.apply(this, arguments);
+  this.nativeObject.indexItemsForTableViewIndex = () => {
+    let returnValue = [];
+    returnValue = this.items.map((value, index, array) => {
+      if (typeof value !== "string") {
+        return value.nativeObject;
+      }
+      return value;
+    });
+    return returnValue;
+  }
+  this.nativeObject.tableViewIndexDidSelect = (e) => {
+    return this.indexDidSelect ? this.indexDidSelect(e.index) : false; //haptic
+  };
+}
 
-        self.nativeObject = new __SF_SMFTableViewIndex();
+ListViewIndex.prototype._backgroundView = undefined;
+ListViewIndex.prototype._items = [];
+ListViewIndex.prototype = Object.create(View.prototype);
+ListViewIndex.prototype.constructor = ListViewIndex;
 
-        _super(this);
+ListViewIndex.prototype.reloadData = function () {
+  this.nativeObject.reloadData();
+}
 
-        self.nativeObject.indexItemsForTableViewIndex = function() {
-            var returnValue = [];
-            if (self.indexItems) {
-                returnValue = self.indexItems().map((value, index, array) => {
-                    if (typeof value !== "string") {
-                        return value.nativeObject;
-                    }
-                    return value;
-                });
-            }
-            return returnValue;
-        };
+Object.defineProperty(ListViewIndex.prototype, "items", {
+  get: function () {
+    return this._items;
+  },
+  set: function (value) {
+    this._items = value.slice();
+  },
+  enumerable: true,
+  configurable: true
+});
 
-        self.nativeObject.tableViewIndexDidSelect = function(e) {
-            return self.indexDidSelect ? self.indexDidSelect(e.index) : false; //haptic
-        }
-
-        self.reloadData = function() {
-            self.nativeObject.reloadData();
-        };
-
-        var _backgroundView = undefined;
-        Object.defineProperty(self, 'backgroundView', {
-            get: function() {
-                if (_backgroundView === undefined) {
-                    _backgroundView = new View();
-                    _backgroundView.nativeObject = self.nativeObject.backgroundView;
-                }
-                return _backgroundView;
-            },
-            enumerable: true
-        });
-
-        Object.defineProperty(self, 'tintColor', {
-            get: function() {
-                return new Color({ color: self.nativeObject.tintColor });
-            },
-            set: function(value) {
-                self.nativeObject.tintColor = value.nativeObject;
-            },
-            enumerable: true,
-            configurable: true
-        });
-
-        Object.defineProperty(self, 'itemSpacing', {
-            get: function() {
-                return self.nativeObject.itemSpacing;
-            },
-            set: function(value) {
-                self.nativeObject.itemSpacing = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-
-        Object.defineProperty(self, 'font', {
-            get: function() {
-                return self.nativeObject.font;
-            },
-            set: function(value) {
-                self.nativeObject.font = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-
-        Object.defineProperty(self, 'indexInset', {
-            get: function() {
-                return self.nativeObject.indexInsetDictionary;
-            },
-            set: function(value) {
-                self.nativeObject.indexInsetDictionary = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-
-        Object.defineProperty(self, 'indexOffset', {
-            get: function() {
-                return self.nativeObject.indexOffsetDictionary;
-            },
-            set: function(value) {
-                self.nativeObject.indexOffsetDictionary = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-
-        Object.defineProperty(self, 'listviewIndexMinimumWidth', {
-            get: function() {
-                return self.nativeObject.minWidth;
-            },
-            set: function(value) {
-                self.nativeObject.minWidth = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-
-        self.resetFont = function() {
-            self.nativeObject.resetFont();
-        };
-
-        self.resetItemSpacing = function() {
-            self.nativeObject.resetItemSpacing();
-        };
-
-        self.resetIndexInset = function() {
-            self.nativeObject.resetIndexInset();
-        };
-
-        self.resetIndexOffset = function() {
-            self.nativeObject.resetIndexOffset();
-        };
-
-        self.resetAppearance = function() {
-            self.nativeObject.resetAppearance();
-        };
-
-        // Assign parameters given in constructor
-        if (params) {
-            for (var param in params) {
-                this[param] = params[param];
-            }
-        }
+Object.defineProperty(ListViewIndex.prototype, "backgroundView", {
+  get: function () {
+    if (this._backgroundView === undefined) {
+      this._backgroundView = new View();
+      this._backgroundView.nativeObject = this.nativeObject.backgroundView;
     }
-);
-module.exports = ListviewIndex;
+    return this._backgroundView;
+  },
+  enumerable: true,
+});
+
+Object.defineProperty(ListViewIndex.prototype, "tintColor", {
+  get: function () {
+    return new Color({ color: this.nativeObject.tintColor });
+  },
+  set: function (value) {
+    this.nativeObject.tintColor = value.nativeObject;
+  },
+  enumerable: true,
+  configurable: true,
+});
+
+Object.defineProperty(ListViewIndex.prototype, "itemSpacing", {
+  get: function () {
+    return this.nativeObject.itemSpacing;
+  },
+  set: function (value) {
+    this.nativeObject.itemSpacing = value;
+  },
+  enumerable: true,
+  configurable: true,
+});
+
+Object.defineProperty(ListViewIndex.prototype, "font", {
+  get: function () {
+    return this.nativeObject.font;
+  },
+  set: function (value) {
+    this.nativeObject.font = value;
+  },
+  enumerable: true,
+  configurable: true,
+});
+
+Object.defineProperty(ListViewIndex.prototype, "indexInset", {
+  get: function () {
+    return this.nativeObject.indexInsetDictionary;
+  },
+  set: function (value) {
+    this.nativeObject.indexInsetDictionary = value;
+  },
+  enumerable: true,
+  configurable: true,
+});
+
+Object.defineProperty(ListViewIndex.prototype, "indexOffset", {
+  get: function () {
+    return this.nativeObject.indexOffsetDictionary;
+  },
+  set: function (value) {
+    this.nativeObject.indexOffsetDictionary = value;
+  },
+  enumerable: true,
+  configurable: true,
+});
+
+Object.defineProperty(ListViewIndex.prototype, "ListViewIndexMinimumWidth", {
+  get: function () {
+    return this.nativeObject.minWidth;
+  },
+  set: function (value) {
+    this.nativeObject.minWidth = value;
+  },
+  enumerable: true,
+  configurable: true,
+});
+
+ListViewIndex.prototype.resetFont = function () {
+  this.nativeObject.resetFont();
+};
+
+ListViewIndex.prototype.resetItemSpacing = function () {
+  this.nativeObject.resetItemSpacing();
+};
+
+ListViewIndex.prototype.resetIndexInset = function () {
+  this.nativeObject.resetIndexInset();
+};
+
+ListViewIndex.prototype.resetIndexOffset = function () {
+  this.nativeObject.resetIndexOffset();
+};
+
+ListViewIndex.prototype.resetAppearance = function () {
+  this.nativeObject.resetAppearance();
+};
+
+module.exports = ListViewIndex;

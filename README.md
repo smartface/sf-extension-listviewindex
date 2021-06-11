@@ -7,26 +7,25 @@ An extension to ListviewIndex component with Smartface Native Framework.
 <img src="/src/samplelistview.gif" width="320" height="568">
 
 ## Installation
-ListviewIndex Extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
+ListviewIndex Extension can be installed via npm easily from our public npm repository. Execute the command on your scripts directory:
 
-- Open terminals
-- `(cd ~/workspace/scripts && npm i -S sf-extension-listviewindex)`
-- Finally require the extension as: `require("sf-extension-listviewindex")`
+```
+npm i @smartface/extension-listviewindex
+```
 
 ## How to use
 1) Create ListviewIndex object and add to your page layout as child view.
 ```typescript
 import Page1Design from 'generated/pages/page1';
-import Image from "sf-core/ui/image";
-import extend from "js-base/core/extend";
-import Color from 'sf-core/ui/color';
-import Label from 'sf-core/ui/label';
-import FlexLayout from 'sf-core/ui/flexlayout';
-import ListView from 'sf-core/ui/listview';
-import ListViewItem from 'sf-core/ui/listviewitem';
-import Font from 'sf-core/ui/font';
-import TextAlignment from 'sf-core/ui/textalignment';
-import ListviewIndex from 'sf-extension-listviewindex';
+import Image from "@smartface/native/ui/image";
+import Color from '@smartface/native/ui/color';
+import Label from '@smartface/native/ui/label';
+import FlexLayout from '@smartface/native/ui/flexlayout';
+import ListView from '@smartface/native/ui/listview';
+import ListViewItem from '@smartface/native/ui/listviewitem';
+import Font from '@smartface/native/ui/font';
+import TextAlignment from '@smartface/native/ui/textalignment';
+import ListviewIndex from '@smartface/extension-listviewindex';
 
 export default class Page1 extends Page1Design {
     router: any;
