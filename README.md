@@ -18,7 +18,6 @@ npm i @smartface/extension-listviewindex
 ```typescript
 import Page1Design from 'generated/pages/page1';
 import Image from "@smartface/native/ui/image";
-import extend from "js-base/core/extend";
 import Color from '@smartface/native/ui/color';
 import Label from '@smartface/native/ui/label';
 import FlexLayout from '@smartface/native/ui/flexlayout';
@@ -26,7 +25,7 @@ import ListView from '@smartface/native/ui/listview';
 import ListViewItem from '@smartface/native/ui/listviewitem';
 import Font from '@smartface/native/ui/font';
 import TextAlignment from '@smartface/native/ui/textalignment';
-import ListviewIndex from 'sf-extension-listviewindex';
+import ListviewIndex from '@smartface/extension-listviewindex';
 
 export default class Page1 extends Page1Design {
     router: any;

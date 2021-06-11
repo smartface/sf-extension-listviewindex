@@ -17,9 +17,6 @@
     "url": "http://smartface.io"
   },
   "license": "MIT",
-  "peerDependencies": {
-    "@smartface/native": "^4.0.0"
-  },
   "publishConfig": {
     "access": "public"
   }
