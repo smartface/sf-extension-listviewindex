@@ -1,6 +1,6 @@
 {
   "name": "@smartface/extension-listviewindex",
-  "version": "2.0.1-rc.1",
+  "version": "2.0.1",
   "description": "ListviewIndex component for Smartface Native Framework",
   "repository": "https://github.com/smartface/sf-extension-listviewindex",
   "main": "index.js",
