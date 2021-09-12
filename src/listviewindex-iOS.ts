@@ -34,9 +34,6 @@ export type IndexOffsetType = {
  * @example
  * var listviewindex = new ListviewIndex();
  * listviewindex.width = 20;
- * listviewindex.indexItems = function() {
- *     return _headerData;
- * }
  * listviewindex.indexDidSelect = function(index) {
  *     myListView.scrollTo(headerIndex[index], false);
  *     return true; //haptic
@@ -49,13 +46,19 @@ export default class ListViewIndex extends View {
     private _backgroundView?: View = undefined;
     private _items: (string | Image)[] = [];
 
-    constructor(args: Partial<typeof View>) {
-        super(args);
+    //@ts-ignore
+    constructor(args?: Partial<typeof View>) {
         //@ts-ignore
         this.nativeObject = new __SF_SMFTableViewIndex();
+        /**
+         * This should be done AFTER nativeObject
+         * Reasons not researched.
+         */
+        super(args || {});
+        //@ts-ignore
         this.nativeObject.indexItemsForTableViewIndex = () => {
             let returnValue = [];
-            returnValue = this.items.map((value, index, array) => {
+            returnValue = this.items.map((value) => {
                 if (typeof value !== "string") {
                     //@ts-ignore
                     return value.nativeObject;
@@ -64,12 +67,19 @@ export default class ListViewIndex extends View {
             });
             return returnValue;
         }
-        //@ts-ignore
-        this.nativeObject.tableViewIndexDidSelect = (e) => {
-            return this.nativeObject.indexDidSelect ? this.nativeObject.indexDidSelect(e.index) : false; //haptic
+        this.nativeObject.tableViewIndexDidSelect = (e: { index: number }) => {
+            return this.indexDidSelect ? this.indexDidSelect(e.index) : false; //haptic
         };
 
     }
+    /**
+     * Gets/sets the callback function when clicked on an item.
+     * @param {Number} index
+     * @method
+     * @since 1.0
+     * @default
+     */
+    indexDidSelect: (index: number) => void = () => {};
 
     /**
      * Gets/sets items to display in the list index. The library support string images items.
@@ -186,11 +196,11 @@ export default class ListViewIndex extends View {
      * @default
      * @return {number}
      */
-    get ListViewIndexMinimumWidth(): number {
+    get listViewIndexMinimumWidth(): number {
         return this.nativeObject.minWidth;
     }
 
-    set ListViewIndexMinimumWidth(value: number) {
+    set listViewIndexMinimumWidth(value: number) {
         this.nativeObject.minWidth = value;
     }
 
@@ -200,7 +210,7 @@ export default class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    reloadData = () => {
+    reloadData() {
         this.nativeObject.reloadData();
     };
 
@@ -210,7 +220,7 @@ export default class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    resetFont = () => {
+    resetFont () {
         this.nativeObject.resetFont();
     };
 
@@ -220,7 +230,7 @@ export default class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    resetItemSpacing = () => {
+    resetItemSpacing () {
         this.nativeObject.resetItemSpacing();
     };
 
@@ -230,7 +240,7 @@ export default class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    resetIndexInset = () => {
+    resetIndexInset () {
         this.nativeObject.resetIndexInset();
     };
 
@@ -240,7 +250,7 @@ export default class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    resetIndexOffset = () => {
+    resetIndexOffset () {
         this.nativeObject.resetIndexOffset();
     };
 
@@ -250,7 +260,7 @@ export default class ListViewIndex extends View {
      * @since 1.0
      * @default
      */
-    resetAppearance = () => {
+    resetAppearance () {
         this.nativeObject.resetAppearance();
     }
 }

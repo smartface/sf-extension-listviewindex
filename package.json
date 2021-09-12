@@ -10,10 +10,9 @@
   },
   "keywords": [
     "smartface",
-    "plugins",
-    "fabric",
-    "crashlytics",
-    "javascript"
+    "javascript",
+    "typescript",
+    "listviewindex"
   ],
   "author": {
     "name": "Smartface",
