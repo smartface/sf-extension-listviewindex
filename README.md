@@ -1,16 +1,17 @@
 # ListviewIndex Extension from Smartface
+[![NPM](https://img.shields.io/npm/v/@smartface/extension-listviewindex?style=flat-square)](https://www.npmjs.com/package/@smartface/extension-listviewindex)
 [![Twitter: @Smartface_io](https://img.shields.io/badge/contact-@Smartface_io-blue.svg?style=flat)](https://twitter.com/smartface_io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/smartface/sf-extension-amce/blob/master/LICENSE)
 
 An extension to ListviewIndex component with Smartface Native Framework.
 
-<img src="/src/samplelistview.gif" width="320" height="568">
+<img src="./assets/samplelistview.gif" width="320" height="568">
 
 ## Installation
 ListviewIndex Extension can be installed via npm easily from our public npm repository. Execute the command on your scripts directory:
 
 ```
-npm i @smartface/extension-listviewindex
+yarn add @smartface/extension-listviewindex
 ```
 
 ## How to use
@@ -181,9 +182,8 @@ Full api documentation is in [api.md](./api.md)
 Please [submit an issue](https://github.com/smartface/sf-extension-listviewindex/issues) on GitHub and provide information about your problem.
 
 ## Support & Documentation & Useful Links
-- [Guides](https://developer.smartface.io)
+- [Guides](https://docs.smartface.io)
 - [API Docs](http://ref.smartface.io)
-- [Smartface Cloud Dashboard](https://cloud.smartface.io)
 
 ## Code of Conduct
 We are committed to making participation in this project a harassment-free experience for everyone, regardless of the level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, or nationality.
